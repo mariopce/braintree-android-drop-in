@@ -1,26 +1,16 @@
 package com.braintreepayments.demo.test;
 
-import android.widget.CheckBox;
-
-import com.braintreepayments.cardform.view.CardForm;
 import com.braintreepayments.demo.test.utilities.TestHelper;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static android.view.View.VISIBLE;
 import static com.braintreepayments.demo.test.utilities.CardNumber.VISA;
 import static com.lukekorth.deviceautomator.AutomatorAction.click;
 import static com.lukekorth.deviceautomator.AutomatorAction.setText;
-import static com.lukekorth.deviceautomator.AutomatorAssertion.text;
 import static com.lukekorth.deviceautomator.DeviceAutomator.onDevice;
 import static com.lukekorth.deviceautomator.UiObjectMatcher.withText;
-import static com.lukekorth.deviceautomator.UiObjectMatcher.withTextContaining;
-import static com.lukekorth.deviceautomator.UiObjectMatcher.withTextStartingWith;
 import static junit.framework.Assert.fail;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.core.StringEndsWith.endsWith;
-import static org.junit.Assert.assertEquals;
 
 public class OptionalVaultingDropInTest extends TestHelper {
 
