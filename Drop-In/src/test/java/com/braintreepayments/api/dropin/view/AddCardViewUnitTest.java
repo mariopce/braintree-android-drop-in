@@ -6,6 +6,8 @@ import android.text.SpannableString;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.braintreepayments.api.dropin.R;
 import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
 import com.braintreepayments.api.dropin.utils.PaymentMethodType;
@@ -50,14 +52,14 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 public class AddCardViewUnitTest {
 
     private ActivityController mActivityController;
-    private Activity mActivity;
+    private AppCompatActivity mActivity;
     private AddCardView mView;
 
     @Before
     public void setup() {
         UnitTestActivity.view = R.layout.bt_add_card_activity;
         mActivityController = Robolectric.buildActivity(UnitTestActivity.class);
-        mActivity = (Activity) mActivityController.setup().get();
+        mActivity = (AppCompatActivity) mActivityController.setup().get();
         mView = mActivity.findViewById(R.id.bt_add_card_view);
         mView.setup(mActivity, (Configuration) new TestConfigurationBuilder()
                 .creditCards(new TestConfigurationBuilder.TestCardConfigurationBuilder()
@@ -365,7 +367,7 @@ public class AddCardViewUnitTest {
                 .destroy();
         mActivityController = Robolectric.buildActivity(UnitTestActivity.class)
                 .setup(bundle);
-        mActivity = (Activity) mActivityController.get();
+        mActivity = (AppCompatActivity) mActivityController.get();
         mView = mActivity.findViewById(R.id.bt_add_card_view);
         mView.setup(mActivity, (Configuration) basicConfig(), true);
 

@@ -48,10 +48,9 @@ android {
             java.srcDir sharedTestDir
         }
     }
-}
-
-configurations.all {
-    resolutionStrategy.force 'com.android.support:support-v4:28.0.0'
+    lintOptions {
+        abortOnError false
+    }
 }
 
 android.buildTypes.debug { type ->
@@ -97,10 +96,6 @@ artifacts {
     archives sourcesJar
 }
 
-signing {
-    required { !version.endsWith("SNAPSHOT") }
-    sign configurations.archives
-}
 
 nexusStaging {
     packageGroup = "com.braintreepayments"

@@ -11,7 +11,7 @@ public class UnitTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTheme(androidx.appcompat.appcompat.R.style.Theme_AppCompat);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat);
 
         setContentView(view);
     }

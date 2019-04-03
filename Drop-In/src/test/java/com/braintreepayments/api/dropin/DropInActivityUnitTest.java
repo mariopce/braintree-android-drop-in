@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.appcompat.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.braintreepayments.api.BraintreeFragment;
 import com.braintreepayments.api.dropin.utils.PaymentMethodType;
