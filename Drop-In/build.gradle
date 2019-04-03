@@ -96,6 +96,10 @@ artifacts {
     archives sourcesJar
 }
 
+signing {
+    required { !version.endsWith("SNAPSHOT") }
+    sign configurations.archives
+}
 
 nexusStaging {
     packageGroup = "com.braintreepayments"
