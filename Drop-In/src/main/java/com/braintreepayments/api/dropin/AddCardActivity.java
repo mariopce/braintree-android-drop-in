@@ -2,9 +2,9 @@ package com.braintreepayments.api.dropin;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IntDef;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -279,6 +279,11 @@ public class AddCardActivity extends BaseActivity implements ConfigurationListen
                     .expirationYear(cardForm.getExpirationYear())
                     .cvv(cardForm.getCvv())
                     .postalCode(cardForm.getPostalCode())
+                    .region(cardForm.getRegion())
+                    .countryCode(cardForm.getCountryCode())
+                    .streetAddress(cardForm.getStreetAddress())
+                    .extendedAddress(cardForm.getExtendedAddress())
+                    .locality(cardForm.getLocality())
                     .validate(mClientTokenPresent);
 
             if (shouldRequestThreeDSecureVerification()) {

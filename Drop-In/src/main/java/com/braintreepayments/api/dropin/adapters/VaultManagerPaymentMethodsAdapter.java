@@ -1,8 +1,10 @@
 package com.braintreepayments.api.dropin.adapters;
 
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.braintreepayments.api.dropin.view.PaymentMethodItemView;
 import com.braintreepayments.api.models.PaymentMethodNonce;

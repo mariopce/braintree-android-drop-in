@@ -4,14 +4,14 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.braintreepayments.api.dropin.DropInRequest;
 import com.braintreepayments.api.dropin.R;
@@ -68,14 +68,14 @@ public class EditCardView extends LinearLayout implements OnCardFormFieldFocused
     }
 
     /**
-     * Deprecated. Use {@link #setup(Activity, Configuration, DropInRequest)}
+     * Deprecated. Use {@link #setup(AppCompatActivity, Configuration, DropInRequest)}
      */
     @Deprecated
     public void setup(Activity activity, Configuration configuration) {
-        setup(activity, configuration, new DropInRequest());
+        setup((AppCompatActivity) activity, configuration, new DropInRequest());
     }
 
-    public void setup(Activity activity, Configuration configuration, DropInRequest dropInRequest) {
+    public void setup(AppCompatActivity activity, Configuration configuration, DropInRequest dropInRequest) {
         mConfiguration = configuration;
 
         mCardForm.cardRequired(true)
@@ -83,6 +83,7 @@ public class EditCardView extends LinearLayout implements OnCardFormFieldFocused
                 .cvvRequired(configuration.isCvvChallengePresent())
                 .postalCodeRequired(configuration.isPostalCodeChallengePresent())
                 .cardholderName(dropInRequest.getCardholderNameStatus())
+                .billingAddressRequired(dropInRequest.getBillingAddressEnabled())
                 .setup(activity);
         mCardForm.setOnCardFormSubmitListener(this);
 
@@ -144,7 +145,7 @@ public class EditCardView extends LinearLayout implements OnCardFormFieldFocused
         mAnimatedButtonView.showButton();
     }
 
-    public void useUnionPay(Activity activity, boolean useUnionPay, boolean debitCard) {
+    public void useUnionPay(AppCompatActivity activity, boolean useUnionPay, boolean debitCard) {
         mCardForm.getExpirationDateEditText().setOptional(false);
         mCardForm.getCvvEditText().setOptional(false);
 

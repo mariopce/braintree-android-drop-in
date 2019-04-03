@@ -36,6 +36,7 @@ public class DropInRequest implements Parcelable {
     private boolean mAndroidPayPhoneNumberRequired;
     private boolean mAndroidPayEnabled = true;
     private boolean mGooglePaymentEnabled = true;
+
     private boolean mMaskCardNumber = false;
     private boolean mMaskSecurityCode = false;
     private boolean mVaultManagerEnabled = false;
@@ -44,6 +45,7 @@ public class DropInRequest implements Parcelable {
     private boolean mPayPalEnabled = true;
     private boolean mVenmoEnabled = true;
     private int mCardholderNameStatus = CardForm.FIELD_DISABLED;
+    private boolean mBillingAddressEnabled = true;
 
     public DropInRequest() {}
 
@@ -69,6 +71,14 @@ public class DropInRequest implements Parcelable {
     public DropInRequest tokenizationKey(String tokenizationKey) {
         mAuthorization = tokenizationKey;
         return this;
+    }
+
+    public DropInRequest disableBillingAddress(){
+        mBillingAddressEnabled = false;
+        return this;
+    }
+    public boolean getBillingAddressEnabled() {
+        return mBillingAddressEnabled;
     }
 
     /**
@@ -429,4 +439,6 @@ public class DropInRequest implements Parcelable {
             return new DropInRequest[size];
         }
     };
+
+
 }

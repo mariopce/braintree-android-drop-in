@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.braintreepayments.api.dropin.R;
 import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
 import com.braintreepayments.api.dropin.utils.PaymentMethodType;
@@ -77,10 +79,10 @@ public class AddCardView extends LinearLayout implements OnCardFormSubmitListene
         mAnimatedButtonView = findViewById(R.id.bt_animated_button_view);
     }
 
-    public void setup(Activity activity, Configuration configuration, boolean unionpaySupported) {
+    public void setup(AppCompatActivity activity, Configuration configuration, boolean unionpaySupported) {
         mCardForm.getCardEditText().displayCardTypeIcon(false);
 
-        mCardForm.cardRequired(true).setup(activity);
+        mCardForm.cardRequired(true).setup((AppCompatActivity) activity);
         mCardForm.setOnCardTypeChangedListener(this);
         mCardForm.setOnCardFormValidListener(this);
         mCardForm.setOnCardFormSubmitListener(this);
